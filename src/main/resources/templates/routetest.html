@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>Hello !</h1>
+    <p>
+        <!-- 使用 router-link 组件来导航. -->
+        <!-- 通过传入 `to` 属性指定链接. -->
+        <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+        <router-link to="/hash1">切换至com1</router-link>
+        <router-link to="/hash2">切换至com2</router-link>
+
+
+    </p>
+    <!-- 路由出口 -->
+    <!-- 路由匹配到的组件将渲染在这里 -->
+    <router-view></router-view>
+    <!-- router-link上的其他属性： -->
+    <!-- 设置 replace 属性的话，当点击时，会调用 router.replace() 而不是 router.push()，
+        导航后不会留下 history 记录。 -->
+    <!-- <router-link :to="{ path: '/abc'}" replace></router-link> -->
+    <!-- 有时候想要 <router-link> 渲染成某种标签，例如 <li>。 于是我们使用
+     tag prop 类指定何种标签，同样它还是会监听点击，触发导航。 -->
+    <!-- <router-link to="/foo" tag="li">foo</router-link> -->
+    <!-- active-class 设置 链接激活时使用的 CSS  -->
+    <!-- event 声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组。 -->
+</div>
+</body>
+<script>
+    // 1. 定义（路由）组件。
+    const com1 = { template: '<div>路由1</div>' }
+    const com2 = { template: '<div>路由2</div>' }
+
+    // 2. 定义路由
+    // 每个路由应该映射一个组件。 其中"components" 可以是 通过 Vue.extend()
+    //  创建的组件构造器， 或者，只是一个组件配置对象.
+    const routes = [
+        { path: '/hash1', component: com1 },
+        { path: '/hash2', component: com2 }
+    ]
+
+    // 3. 创建 router 实例，然后传 `routes` 配置
+    const router = new VueRouter({
+        routes // （缩写）相当于 routes: routes
+    })
+
+    // 4. 创建和挂载根实例。
+    // 要通过 router 配置参数注入路由，从而让整个应用都有路由功能
+    const app = new Vue({
+        router
+    }).$mount('#app');//el是自动挂载，mount是手动挂载（延时）
+
+</script>
+</html>

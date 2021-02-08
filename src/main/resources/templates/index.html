@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>demo</title>
+    <style>
+        html,
+        body,
+        #app {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div id="app">
+    <router-view></router-view>
+</div>
+<!-- 引入 Vue 相关 的 JS 文件 -->
+<script src="js/vue.js"></script>
+<link rel="stylesheet" href="css/element-ui-index.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/global.css">
+
+<script src="js/element-ui-index.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/param.js"></script>
+<script src="js/httpVueLoader.js"></script>
+<script src="js/vue-router302.js"></script>
+<script src="route/router.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    Vue.use(httpVueLoader);
+    var vue = new Vue({
+        router
+    }).$mount('#app')
+    // 中转对象 负责组件间通信
+    var bus = new Vue()
+
+</script>
+</body>
+
+</html>
