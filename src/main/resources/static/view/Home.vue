@@ -3,7 +3,8 @@
     <el-container style="height: 100%">
       <!-- 侧边栏 -->
       <!-- :父传子 @子传父出发函数 -->
-      <my-sidebar :side-collapse="isCollapse"></my-sidebar>
+      <my-sidebar ></my-sidebar>
+      <!--<my-sidebar :side-collapse="isCollapse"></my-sidebar>-->
 
       <el-container>
         <!--头部-->
