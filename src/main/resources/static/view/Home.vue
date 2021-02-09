@@ -79,7 +79,7 @@
     background-color: #fff;
     color: #333;
     text-align: center;
-    line-height: 160px;
+    /*line-height: 160px;*/
   }
 
   body > .el-container {
